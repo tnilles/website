@@ -13,6 +13,9 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 body {
     padding-top: 20px;
     padding-bottom: 20px;
+    background-color: #383e3e;
+    color: #b7a774;
+    font-family: 'Lato', sans-serif;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -87,5 +90,25 @@ body {
     /* Remove the bottom border on the jumbotron for visual effect */
     .jumbotron {
         border-bottom: 0;
+    }
+}
+
+#welcome {
+    position: relative;
+    height: 600px;
+
+    h1 {
+        position: relative;
+        z-index: 10;
+        margin-top: 0;
+        top: 150px;
+        text-align: center;
+        font-size: 48px;
+    }
+
+    canvas {
+        position: absolute;
+        top: 0;
+        z-index: 0;
     }
 }
