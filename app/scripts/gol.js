@@ -15,7 +15,8 @@ var Gol = (function () {
             content: []
         },
         start,
-        mousemoveEvent = false;
+        mousemoveEvent = false,
+        animation = true;
 
     var setGrid = function(cols, rows) {
         grid.cols = cols;
@@ -27,7 +28,7 @@ var Gol = (function () {
             ctx.lineTo(canvas.width, i * grid.blockSize);
         }
 
-        for (var i = 0 ; i < rows ; i++) {
+        for (var i = 0 ; i < cols ; i++) {
             ctx.moveTo(i * grid.blockSize, 0);
             ctx.lineTo(i * grid.blockSize, canvas.height);
         }
@@ -66,8 +67,8 @@ var Gol = (function () {
 
     var changeColorAt = function(x, y, color) {
         ctx.fillStyle = color;
-        ctx.fillRect(x * grid.blockSize,
-                     y * grid.blockSize,
+        ctx.fillRect(y * grid.blockSize,
+                     x * grid.blockSize,
                      grid.blockSize,
                      grid.blockSize);
     };
@@ -106,7 +107,7 @@ var Gol = (function () {
         neighbors += isThereNeighborAt(x, y + 1);
         neighbors += isThereNeighborAt(x + 1, y + 1);
 
-        if ((neighbors === 2 && grid.content[x][y] === 1) ||
+        if (((neighbors === 2 || neighbors === 3) && grid.content[x][y] === 1) ||
             (neighbors === 3 && grid.content[x][y] === 0)) {
             return 1;
         } else {
@@ -115,8 +116,8 @@ var Gol = (function () {
     };
 
     var isThereNeighborAt = function(x, y) {
-        if (grid.content[x] && (grid.content[x][y] === 0 || grid.content[x][y] === 1)) {
-            return grid.content[x][y];
+        if (grid.content[x] && grid.content[x][y] === 1) {
+            return 1;
         } else {
             return 0;
         }
@@ -127,7 +128,7 @@ var Gol = (function () {
             start = performance.now();
         }
 
-        if (performance.now() - start > 500) {
+        if (performance.now() - start > 100) {
             start = performance.now();
             update();
         }
@@ -142,17 +143,42 @@ var Gol = (function () {
         ctx.fillStyle = grid.background;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        setGrid(400, 400);
+        setGrid(Math.ceil(width / grid.blockSize), Math.ceil(height / grid.blockSize));
         requestAnimationFrame(gameLoop);
     };
 
     // Public
     return function(elm, width, height) {
-        this.init = function(elm, width, height) {
-            canvas = elm;
+        /*
+        initObject: {
+            elm,
+            blockSize,
+            cols,
+            rows
+        }
+        */
+        this.init = function(initObject) {
+            canvas = initObject.elm;
             ctx = canvas.getContext('2d');
+            grid.blockSize = initObject.blockSize;
 
-            settingCanvas(width, height);
+            settingCanvas(initObject.width, initObject.height);
+        };
+
+        this.setAnimation = function(state) {
+            animation = state;
+        };
+
+        this.nextStep = function() {
+            update();
+        };
+
+        this.getGridContent = function() {
+            return grid.content;
+        };
+
+        this.initGrid = function(myGrid) {
+            grid.content = myGrid;
         };
 
         this.resize = function(width, height) {
@@ -166,14 +192,14 @@ var Gol = (function () {
             canvas.addEventListener("mousemove", function(e) {
                 var canvasOffsetLeft = canvas.getBoundingClientRect().left,
                     canvasOffsetTop = canvas.getBoundingClientRect().top,
-                    x,
-                    y;
+                    row,
+                    col;
 
-                x = Math.floor((e.clientX - canvasOffsetLeft) / grid.blockSize);
-                y = Math.floor((e.clientY - canvasOffsetTop) / grid.blockSize);
+                row = Math.floor((e.clientY - canvasOffsetTop) / grid.blockSize);
+                col = Math.floor((e.clientX - canvasOffsetLeft) / grid.blockSize);
 
-                changeColorAt(x, y, grid.light);
-                grid.content[x][y] = 1;
+                changeColorAt(row, col, grid.light);
+                grid.content[row][col] = 1;
             }, false);
 
             mousemoveEvent = true;
