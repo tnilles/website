@@ -18,7 +18,8 @@
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
-        <link href='http://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic' rel='stylesheet' type='text/css'>
         <script src="bower_components/modernizr/modernizr.js"></script>
 
     </head>
@@ -30,7 +31,85 @@
         <div>
             <section id="welcome">
                 <h1>Hi, I'm Thierry Nilles.<br>I make stuff on the www.</h1>
+                <div class="image-wrapper">
+                    <img src="images/thierry.png" />
+                </div>
                 <canvas id="game-of-life"></canvas>
+            </section>
+
+            <section>
+                <h1>I've worked for...</h1>
+
+                <article>
+                    <header>
+                        <h3>TakeTracker</h3>
+                        <h4><a href="http://takes.io">http://takes.io</a></h4>
+                        <img id="takes-logo" src="images/takes.png" />
+                    </header>
+
+                    <div class="content">
+                        <h4>October 2012 &mdash; January 2014</h4>
+                        <p>Built the web application frontend, using Javascript with AngularJS framework and HTML5 (audio, video, canvas, etc.). Brought innovative contributions to a fast paced start- up environment. Worked well independently and with three people on various topics: API, design, UX.</p>
+                    </div>
+                </article>
+
+                <article>
+                    <header>
+                        <h3>Gastronomiz</h3>
+                        <h4><a href="http://gastronomiz.com">http://gastronomiz.com</a> <em>(fr)</em></h4>
+                        <img id="gastronomiz-logo" src="images/gastronomiz.png" />
+                    </header>
+
+                    <div class="content">
+                        <h4>March 2012 &mdash; May 2012</h4>
+                        <p>Created Gastronomiz’s web store using Prestashop and configured the Wordpress blog. Assisted a designer in order to integrate his work. Met strict deadline to release the website for this company which now has over 3000 recurring customers.</p>
+                    </div>
+                </article>
+
+                <article>
+                    <header>
+                        <h3>Shopmium</h3>
+                        <h4><a href="http://shopmium.com/en">http://shopmium.com/en</a></h4>
+                        <img id="shopmium-logo" src="images/shopmium.png" />
+                    </header>
+
+                    <div class="content">
+                        <h4>May 2011 &mdash; September 2012</h4>
+                        <p>Indenpendently designed and implemented the administration of the mobile application with Ruby on Rails, used for verifying and approving user inputs. Worked with the Chief Technical Officer on the store’s geolocalization database. Set up the commercial website using PHP and Javascript.</p>
+                    </div>
+                </article>
+            </section>
+
+            <section id="contact">
+                <div class="content">
+                    <h1>Contact me !</h1>
+
+                    <p>Send me an email at <a href="mailto:contact@thierrynilles.com">contact@thierrynilles.com</a> or ping me via:</p>
+
+                    <ul>
+                        <li>
+                            <a href="https://twitter.com/thierrynilles">@thierrynilles</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/tnilles">github.com/tnilles</a>
+                        </li>
+                        <li>
+                            <a href="http://www.linkedin.com/pub/thierry-nilles/20/409/684">LinkedIn</a>
+                        </li>
+                    </ul>
+
+                    <p>You can also contact me the old fashioned way:</p>
+
+                    <div class="vcard">
+                        <p class="fn">Thierry Nilles</p>
+                        <p class="adr">
+                            <span class="street-address">44, rue des cordelières</span><br>
+                            <span class="postal-code">75013</span> <span class="region">Paris</span><br>
+                            <span class="country-name">France</span>
+                        </p>
+                        <p class="tel">+33 6 81 91 98 22</p>
+                    </div>
+                </div>
             </section>
         </div>
 
