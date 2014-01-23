@@ -8,6 +8,8 @@
 </head>
 <body>
     <div id="mocha"></div>
+    <canvas style="display: none;" id="gol"></canvas>
+
     <script src="bower_components/mocha/mocha.js"></script>
     <script>mocha.setup('bdd')</script>
     <script src="bower_components/chai/chai.js"></script>
@@ -18,6 +20,8 @@
     </script>
 
     <!-- include source files here... -->
+    <script src="../app/bower_components/jquery/jquery.js"></script>
+    <script src="../app/scripts/gol.js"></script>
 
     <!-- include spec files here... -->
     <script src="spec/test.js"></script>
