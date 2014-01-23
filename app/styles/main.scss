@@ -9,106 +9,145 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
     padding: 0.2em 0;
 }
 
-/* Space out content a bit */
 body {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #383e3e;
-    color: #b7a774;
-    font-family: 'Lato', sans-serif;
+    padding: 0;
+    background-color: #F8F8F8;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-    padding-left: 15px;
-    padding-right: 15px;
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
 }
 
-/* Custom page header */
-.header {
-    border-bottom: 1px solid #e5e5e5;
-
-    /* Make the masthead heading the same height as the navigation */
-    h3 {
-        margin-top: 0;
-        margin-bottom: 0;
-        line-height: 40px;
-        padding-bottom: 19px;
-    }
+h1, h2, h3 {
+    font-weight: 700;
 }
 
-/* Custom page footer */
-.footer {
-    padding-top: 19px;
-    color: #777;
-    border-top: 1px solid #e5e5e5;
+h2 {
+    margin-left: 20px;
 }
 
-.container-narrow > hr {
-    margin: 30px 0;
-}
+section {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 60px;
 
-/* Main marketing message and sign up button */
-.jumbotron {
-    text-align: center;
-    border-bottom: 1px solid #e5e5e5;
-    .btn {
-        font-size: 21px;
-        padding: 14px 24px;
-    }
-}
+    article {
+        display: table;
+        margin: 0 auto;
 
-/* Supporting marketing content */
-.marketing {
-    margin: 40px 0;
-    p + h4 {
-        margin-top: 28px;
-    }
-}
+        margin-bottom: 50px;
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-    .container {
-        max-width: 730px;
-    }
+        header, .content {
+            display: table-cell;
+            vertical-align: top;
+        }
 
-    /* Remove the padding we set earlier */
-    .header,
-    .marketing,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
+        header {
+            width: 300px;
 
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
-    }
+            img {
+                border: 1px solid rgb(219, 217, 217);
+                width: 220px;
+            }
 
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
+            #takes-logo {
+                border-radius: 50%;
+            }
+        }
+
+        .content {
+            max-width: 700px;
+            padding-top: 15px;
+            font-family: 'Lora';
+            font-size: 18px;
+            line-height: 31px;
+
+            p {
+                margin-top: 40px;
+                text-align: justify;
+            }
+        }
     }
 }
 
 #welcome {
     position: relative;
-    height: 600px;
+    width: 100%;
+    /* min-height: 650px; */
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.68);
+    margin: 0;
+    margin-bottom: 150px;
 
     h1 {
         position: relative;
         z-index: 10;
         margin-top: 0;
-        top: 150px;
+        top: 120px;
         text-align: center;
         font-size: 48px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        color: rgb(213, 196, 0);
+        line-height: 67px;
+    }
+
+    .image-wrapper {
+        position: absolute;
+        z-index: 10;
+        top: 300px;
+        left: 50%;
+        margin-left: -160px;
+        border: 10px solid #161616;
+        border-radius: 50%;
+        overflow: hidden;
+        width: 320px;
+        height: 320px;
     }
 
     canvas {
         position: absolute;
         top: 0;
         z-index: 0;
+    }
+}
+
+#contact {
+    width: 100%;
+    background-color: #34353a;
+    color: #ffffff;
+    padding: 50px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.33);
+
+    .content {
+        width: 80%;
+        margin: 0 auto;
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-family: 'Lora';
+            font-size: 18px;
+            line-height: 31px;
+        }
+
+        ul {
+            padding-left: 0;
+
+            li {
+                list-style-type: none;
+                font-family: 'Lora';
+                font-size: 18px;
+                line-height: 41px;
+            }
+        }
+
+        .vcard {
+            display: inline-block;
+            background-color: rgb(66, 66, 66);
+            color: rgb(255, 255, 255);
+            padding: 30px;
+        }
     }
 }
