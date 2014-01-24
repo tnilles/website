@@ -2,6 +2,8 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
 
+$break-medium: 800px;
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
@@ -148,6 +150,33 @@ section {
             background-color: rgb(66, 66, 66);
             color: rgb(255, 255, 255);
             padding: 30px;
+        }
+    }
+}
+
+@media screen and (max-width: $break-medium) {
+    section {
+        padding-top: 40px;
+
+        article {
+            header, .content {
+                display: block;
+            }
+
+            header {
+                margin: 0 auto;
+                text-align: center;
+            }
+        }
+    }
+
+    #welcome {
+        padding-top: 0;
+
+        h1 {
+            top: 40px;
+            font-size: 38px;
+            line-height: 47px;
         }
     }
 }
